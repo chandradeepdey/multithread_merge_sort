@@ -17,14 +17,15 @@ int mergeSort(void *input)
                 // large l and h
                 int m = x->l + (x->r - x->l) / 2;
 
+                // Sort first and second halves
                 inputToThread l;
                 l.arr = x->arr;
                 l.l = x->l;
                 l.r = m;
-                // Sort first and second halves
                 thrd_create(&first, msort, (void *) &l);
 
                 inputToThread r;
+                r.arr = x->arr;
                 r.l = m + 1;
                 r.r = x->r;
                 thrd_create(&second, msort, (void *) &r);
