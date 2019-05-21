@@ -8,9 +8,10 @@
  sub-array of arr to be sorted */
 int mergeSort(void *input)
 {
-        int (*msort)(void *) = mergeSort;
-        thrd_t first, second;
         inputToThread * x = (inputToThread *) input;
+
+        thrd_start_t msort = mergeSort;
+        thrd_t first, second;
 
         if (x->l < x->r) {
                 // Same as (l+r)/2, but avoids overflow for
