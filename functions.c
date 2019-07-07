@@ -8,9 +8,8 @@
  sub-array of arr to be sorted */
 int mergeSort(void *input)
 {
-        inputToThread * x = (inputToThread *) input;
+        inputToThread *x = (inputToThread*) input;
 
-        thrd_start_t msort = mergeSort;
         thrd_t first, second;
 
         if (x->l < x->r) {
@@ -23,16 +22,16 @@ int mergeSort(void *input)
                 l.arr = x->arr;
                 l.l = x->l;
                 l.r = m;
-                thrd_create(&first, msort, (void *) &l);
+                thrd_create(&first, mergeSort, (void*) &l);
 
                 inputToThread r;
                 r.arr = x->arr;
                 r.l = m + 1;
                 r.r = x->r;
-                thrd_create(&second, msort, (void *) &r);
+                thrd_create(&second, mergeSort, (void*) &r);
 
-                thrd_join(first, (int *) NULL);
-                thrd_join(second, (int *) NULL);
+                thrd_join(first, (int*) NULL);
+                thrd_join(second, (int*) NULL);
                 merge(x->arr, x->l, m, x->r);
         }
 
