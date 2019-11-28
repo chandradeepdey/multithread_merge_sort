@@ -1,2 +1,6 @@
-# multithread_merge_sort
-https://www.geeksforgeeks.org/merge-sort/ modified to support multithreading with C11/C18 standard library functions
+# multithread_c
+C programs using standard library multithreading features
+# TODO
+Add the matrix determinant program
+Change parts of the merge sort code.
+Add CMakelists
